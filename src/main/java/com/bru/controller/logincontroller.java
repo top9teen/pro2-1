@@ -32,7 +32,7 @@ public String test2 (String idcard, String password,HttpServletRequest request ,
 	
 	UserBean bean = new UserBean();
 	
-	
+	System.out.println("1");
 	try {
 		bean = userDao.xx(idcard,password) ;
 		
