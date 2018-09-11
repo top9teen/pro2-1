@@ -9,28 +9,29 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
 <%
-String check = "";
+	String result = "";
 %>
 <%
-	check = (String) request.getAttribute("messessError");
+	result = (String) request.getAttribute("messessError");
 %>
 </head>
 <body>
 
 <div class="container" >
-		<form name="login" action="rent" method="post">
+		<form name="check" action="Checking" method="post">
 			<div class="panel panel-primary" style="margin-top: 15%">
 				<div class="panel-heading">IDCard</div>
 				<div class="panel-body">
 					<%
-						if (check.equals("F")) {
+						if (result.equals("F")) {
 					%>
 					<div class="alert alert-danger">
-						<strong>Faill ! </strong> You Login Faill !!
+						<strong>ไม่เป็น </strong> สมาชิก !!
 					</div>
 					<%
-						}else if(check.equals("L")){
+						}else if(result.equals("L")){
 					%>
 							<div class="alert alert-success">
 						<strong>Success </strong> Logout Success
@@ -44,12 +45,12 @@ String check = "";
  
    
     <div class="panel-footer">
-					<button type="submit" class="btn btn-default">Submit
-					</button>
+					<button type="submit" class="btn btn-default">Submit</button>
 				
 	 </div>
 	
     </div>
   </form>
+  </div>
 </body>
 </html>

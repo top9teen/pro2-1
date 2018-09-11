@@ -27,7 +27,7 @@
 </div>
 
 <!-- <img src="img_car.jpg" alt="Car" style="width:100%"> -->
-<form class="form-horizontal"action="rent" method="POST" name="gotoregister" > 
+<form class="form-horizontal"action="gotorrrregister" method="POST" name="gotoregister" > 
   <div class="form-group">
     <label for="idcard" class="col-sm-2 control-label">ID</label>
     <div class="col-sm-3">

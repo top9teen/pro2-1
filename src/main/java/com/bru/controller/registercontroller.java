@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import com.bru.dao.UserDao;
 import com.bru.model.UserBean;
 
@@ -17,14 +18,13 @@ public class registercontroller {
 	@Autowired
 	UserDao userDao;
 
-	
      @RequestMapping( value="/register")
 	public String test() {
 		
 		return "register";
 	}
-	@RequestMapping(value ="/rent")
-	public String test2(String idcard ,String fristname , String lastname ,String address ,String telephone ,String gender ,
+	@RequestMapping(value ="/gotorrrregister")
+	public String rent(String idcard ,String fristname , String lastname ,String address ,String telephone ,String gender ,
 			String password ,String status) {
 	
 		
@@ -38,6 +38,10 @@ public class registercontroller {
 		bean.setGender(gender);
 		bean.setPassword(password);
 		bean.setStatus(status);
+		
+		
+		
+		
 		try { 
 			
 			userDao.insert(bean);
@@ -47,7 +51,7 @@ public class registercontroller {
 		}
 
 		
-		return "index";
+		return "index1";
 	}
 
 

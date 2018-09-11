@@ -12,8 +12,8 @@
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
   <button class="w3-bar-item w3-button w3-large"
   onclick="w3_close()">Close &times;</button>
-  <a href="index" class="w3-bar-item w3-button w3-padding-24"  style="font-size: 20px; font-family: cursive;">หน้าแรก</a>
-  <a href="rent" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">เช่าภาชนะ</a>
+  <a href="index1" class="w3-bar-item w3-button w3-padding-24"  style="font-size: 20px; font-family: cursive;">หน้าแรก</a>
+  <a href="Check" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">เช่าภาชนะ</a>
   <a href="withdrawal" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">เบิกภาชนะ</a>
   <a href="member" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">สมาชิก</a>
   <a href="admin" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">ผู้ดูแลระบบ</a>
@@ -30,18 +30,18 @@
     <h1 align="center">ภาชนะ</h1>
   </div>
 </div>
-  <tr>  <tr>  <tr>
+  <tr>tr> <tr>  <tr>
 <!-- <img src="img_car.jpg" alt="Car" style="width:100%"> -->
 <div class="form-group row">
     <div class="form-group col-md-12">
 
     </div>
-
+ </div>
 <div class="form-group row">
     <div class="form-group col-md-3">
 
     </div>
-
+ </div>
     <div class="form-group col-md-6">
         <form class="">
 
@@ -81,7 +81,7 @@
 
     </form>
 </div>
-
+ </div>
 
       <div class="form-group col-md-3">
 

@@ -1,11 +1,14 @@
 package com.bru.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import org.springframework.stereotype.Repository;
+
 
 import com.bru.model.UserBean;
 import com.bru.util.ConnectDB;
@@ -85,23 +88,61 @@ public class UserDao {
 			conn.close();
 		}
 	}
-	public void check(UserBean bean)throws SQLException {
+	public  UserBean ch(String i )throws SQLException {
 		ConnectDB con = new ConnectDB();
 		PreparedStatement prepared = null ;
 		StringBuilder sql = new StringBuilder();
-		Connection cc = con.openConnect();
+//		Connection cc = con.openConnect();
+		UserBean bean = new UserBean();
+
 		try {
-			sql.append( " SELECT * FROM user WHERE  idcard = ? AND status = '2' " );
-			prepared = cc.prepareStatement(sql.toString());
-			prepared.setString(1, bean.getIdcard());
-			prepared.executeUpdate();
+ 	    	//sql.append("INSERT INTO detailrent(ID_Card)VALUES(?)" );
+			sql.append( " SELECT * FROM user WHERE  idcard = ?" );
+		
+//			prepared = cc.prepareStatement(sql.toString());
+			prepared = con.openConnect().prepareStatement(sql.toString());
+			prepared.setString(1, i);
+//			prepared.setString(2, s);
+		//	prepared.setString(1, bean.getIdcard());
+			ResultSet rs = prepared.executeQuery();
+			while (rs.next()) {
+//				((UserBean) cc).setIdcard(rs.getString("idcard"));
+//				((UserBean) cc).setStatus(rs.getString("Status"));
+				bean.setIdcard(rs.getString("idcard"));
+				bean.setStatus(rs.getString("status"));
+				id = bean.getIdcard();
+//				System.out.println(id);
+			}
+			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 	}
 		finally {
-			cc.close();
+//			con.close();
+		}return bean;
+	}
+	String id;
+
+	
+	public void add(UserBean bean) throws Exception{
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection cons = con.openConnect();
+		try {
+			sql.append("INSERT INTO detailrent(ID_Card)VALUES(?)" );
+			prepared = cons.prepareStatement( sql.toString());
+			prepared.setString(1, bean.getIdcard());
+			prepared.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			cons.close();
 		}
 	}
-	//end class
+	
+	
 }

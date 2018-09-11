@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Welcomecontroller {
 
 	
+	@RequestMapping("/index1")
+	public String heli() {
+		return "index1";
+	}
+  
 	
-
+		
 	
 	
 	@RequestMapping("/withdrawal")
@@ -43,6 +48,7 @@ public class Welcomecontroller {
 		return "container";
 	}
 	
-   
+
+	
 	// end class
 }
