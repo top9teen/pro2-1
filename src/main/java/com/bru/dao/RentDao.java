@@ -10,13 +10,6 @@ import com.bru.model.RentBean;
 import com.bru.util.ConnectDB;
 
 
-
-
-
-
-
-
-
 @Repository
 public class RentDao {
 	

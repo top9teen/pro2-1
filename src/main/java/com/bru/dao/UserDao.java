@@ -39,14 +39,10 @@ public class UserDao {
 		while (rs.next()) {
 			
 			bean.setIdcard(rs.getString("idcard"));
-		//	bean.setFristname(rs.getString("fristname"));
-		//	bean.setLastname(rs.getString("lastname"));
-		//	bean.setAddress(rs.getString("address"));
-		//	bean.setTelephone(rs.getString("telephone"));
-		//	bean.setGender(rs.getString("gender"));
+
 			bean.setPassword(rs.getString("password"));
 			bean.setStatus(rs.getString("status"));
-		//	bean.setNo(rs.getInt("no"));
+	
 		}
 
 	} catch (Exception e) {
@@ -92,26 +88,24 @@ public class UserDao {
 		ConnectDB con = new ConnectDB();
 		PreparedStatement prepared = null ;
 		StringBuilder sql = new StringBuilder();
-//		Connection cc = con.openConnect();
+		Connection cc = con.openConnect();
 		UserBean bean = new UserBean();
 
 		try {
- 	    	//sql.append("INSERT INTO detailrent(ID_Card)VALUES(?)" );
+ 
 			sql.append( " SELECT * FROM user WHERE  idcard = ?" );
 		
-//			prepared = cc.prepareStatement(sql.toString());
-			prepared = con.openConnect().prepareStatement(sql.toString());
+		prepared = cc.prepareStatement(sql.toString());
+	
 			prepared.setString(1, i);
-//			prepared.setString(2, s);
-		//	prepared.setString(1, bean.getIdcard());
+
 			ResultSet rs = prepared.executeQuery();
 			while (rs.next()) {
-//				((UserBean) cc).setIdcard(rs.getString("idcard"));
-//				((UserBean) cc).setStatus(rs.getString("Status"));
+			
 				bean.setIdcard(rs.getString("idcard"));
 				bean.setStatus(rs.getString("status"));
-				id = bean.getIdcard();
-//				System.out.println(id);
+	
+				
 			}
 			
 		}
@@ -119,10 +113,10 @@ public class UserDao {
 			e.printStackTrace();
 	}
 		finally {
-//			con.close();
+			cc.close();
 		}return bean;
 	}
-	String id;
+
 
 	
 	public void add(UserBean bean) throws Exception{

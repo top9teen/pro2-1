@@ -32,7 +32,7 @@ public String test2 (String idcard, String password,HttpServletRequest request ,
 	
 	UserBean bean = new UserBean();
 	
-	System.out.println("1");
+	
 	try {
 		bean = userDao.xx(idcard,password) ;
 		
@@ -40,11 +40,11 @@ public String test2 (String idcard, String password,HttpServletRequest request ,
 		
 		if(bean.getStatus().equals("1")){	
 			
-			page = "rent";
+			page = "login";
 		}
 		else if(bean.getStatus().equals("2")){
 		
-			page = "report";	
+			page = "index1";	
 		}
 		else if (bean.getStatus() == null) {		
 

@@ -5,27 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<jsp:include page="../Template/header.jsp"></jsp:include>
 </head>
 <body>
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large"
-  onclick="w3_close()">Close &times;</button>
-  <a href="index1" class="w3-bar-item w3-button w3-padding-24"  style="font-size: 20px; font-family: cursive;">หน้าแรก</a>
-  <a href="Check" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">เช่าภาชนะ</a>
-  <a href="withdrawal" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">เบิกภาชนะ</a>
-  <a href="member" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">สมาชิก</a>
-  <a href="admin" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">ผู้ดูแลระบบ</a>
-  <a href="report" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">สรุปรายงาน</a>
-  <a href="login" class="w3-bar-item w3-button w3-padding-24" style="font-size: 20px; font-family: cursive;">ออกจากระบบ</a>
-</div>
+<jsp:include page="../Template/manu.jsp"></jsp:include>
 
 <div id="main">
 <div class="w3-teal">
   <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
   <div class="w3-container">
-    <h1 align="center">มหาลัยะ</h1>
+    <h1 align="center">มหาลัย</h1>
   </div>
 </div>
 </div>

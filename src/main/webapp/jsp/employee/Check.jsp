@@ -5,10 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<jsp:include page="../Template/header.jsp"></jsp:include>
+
 
 <%
 	String result = "";
@@ -18,7 +16,16 @@
 %>
 </head>
 <body>
+<jsp:include page="../Template/manu.jsp"></jsp:include>
 
+
+<div id="main">
+<div class="w3-teal">
+  <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+  <div class="w3-container">
+    <h1 align="center">มหาลัย</h1>
+  </div>
+</div>
 <div class="container" >
 		<form name="check" action="Checking" method="post">
 			<div class="panel panel-primary" style="margin-top: 15%">
@@ -34,7 +41,7 @@
 						}else if(result.equals("L")){
 					%>
 							<div class="alert alert-success">
-						<strong>Success </strong> Logout Success
+						<strong>Success </strong> สำเร็จ
 					</div>
 					<%} %>
 			</div>			
@@ -52,5 +59,20 @@
     </div>
   </form>
   </div>
+</div>
+
+<script type="text/javascript">
+function w3_open() {
+	  document.getElementById("main").style.marginLeft = "20%";
+	  document.getElementById("mySidebar").style.width = "20%";
+	  document.getElementById("mySidebar").style.display = "block";
+	  document.getElementById("openNav").style.display = 'none';
+	}
+	function w3_close() {
+	  document.getElementById("main").style.marginLeft = "0%";
+	  document.getElementById("mySidebar").style.display = "none";
+	  document.getElementById("openNav").style.display = "inline-block";
+	}
+</script>
 </body>
 </html>
