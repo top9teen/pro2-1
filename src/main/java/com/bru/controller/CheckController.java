@@ -12,7 +12,7 @@ import com.bru.dao.UserDao;
 import com.bru.model.UserBean;
 
 @Controller
-public class Checkcontroller {
+public class CheckController {
 	@Autowired
 	UserDao userDao;
 	RentDao rentDao;
