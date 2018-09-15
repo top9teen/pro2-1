@@ -14,6 +14,7 @@ import com.bru.dao.ApiDao;
 import com.bru.dao.RentDao;
 import com.bru.dao.UserDao;
 import com.bru.model.ContainerBean;
+import com.bru.model.CustomerBean;
 import com.bru.model.UserBean;
 
 @Controller
@@ -36,13 +37,13 @@ return "Check";
 public String Checking(String idcard, Model model ,
 		HttpServletRequest request) {
 	String page = "";
-	UserBean ch = new UserBean();
+	CustomerBean ch = new CustomerBean();
 	  List<ContainerBean> list = new ArrayList<>();
 	try {
 
 		ch = userDao.ch(idcard);
 		list = apiDao.ch23();
-		if(ch.getIdcard() != null) {
+		if(ch.getCuIdcard() != null) {
 			request.getSession().setAttribute("1", ch);
 			model.addAttribute("messessError", "L");
 			page ="gotorent";

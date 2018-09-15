@@ -44,8 +44,8 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 </style>
-<% UserBean bean = null; %>
-<% bean = (UserBean) request.getSession().getAttribute("1");%>
+<% CustomerBean bean = null; %>
+<% bean = (CustomerBean) request.getSession().getAttribute("1");%>
 <% List<ContainerBean> list = null ; %>
 <% list = (List<ContainerBean>) request.getSession().getAttribute("list"); %>
 <body>
@@ -58,7 +58,7 @@ input[type="number"] {
  <h1 align="center">มหาลัย</h1>
   </div>
 </div>
-  <form action="rent22" method="POST" name="rent2">
+  <form action="rent22"  name="rent2">
 		<div align="center"> 
 		<p> 1.ชาม เหลือ  <%=list.get(0).getNumber() %></p>
 		<p> 1.ถ้วยน้ำซุป เหลือ  <%=list.get(1).getNumber() %></p>
@@ -72,8 +72,9 @@ input[type="number"] {
 		
 		</div>
 <h2 style="background-color:Tomato; text-align: center;">เช่าภาชนะ</h2>
-<input type="hidden" id="idcard" name="idcard" value="<%=bean.getIdcard() %>">
-<label  style="font-size: 26px; margin-left: 20%;">รหัส  <%=bean.getIdcard() %></label>
+<input type="hidden" id="idcard" name="idcard" value="<%=bean.getCuIdcard() %>">
+<label  style="font-size: 26px; margin-left: 20%;">รหัส  <%=bean.getCuIdcard() %></label>
+<label  style="font-size: 26px; margin-left: 20%;">ชื่อ  <%=bean.getCuFname()%></label>
 <table style="width:100%">
   <tr>
      <th>สินค้า</th>
@@ -105,6 +106,17 @@ input[type="number"] {
     <td colspan="2"id ="so1"></td>
   </tr>
 </table>
+
+<div class="panel-footer" align="center" >
+<input type="hidden"  id="so8" name ="sara">
+<input type="hidden"  id="so9" name ="mmmm">
+<a href="index1" class="btn btn-primary">Home</a>
+					<button type="submit" id="tes12" class="btn btn-primary" disabled="disabled">Submit</button>
+					 <button type="reset" class="btn btn-primary">Clear</button>
+        </div>
+   
+</form>
+</div>
 
 <script type='text/javascript'>
 $(function() {
@@ -142,7 +154,10 @@ $(function() {
           $('#po3').text(totals3);
            $('#po4').text(totals4);
            var totals5 = parseFloat(totals1 + totals2 + totals3 + totals4) ||"" ;
+           var totals61 = parseFloat(input1 + input2 + input3 + input4) ||"" ;
              $('#so1').text(totals5);
+             $('#so8').val(totals5);
+             $('#so9').val(totals61);
     };
   // output_total.text(total);
 
@@ -222,15 +237,6 @@ $('#no4').change(function() {
 	
 });
 </script>
-<div class="panel-footer" align="center">
-<a href="index1" class="btn btn-primary">Home</a>
-					<button type="submit" id="tes12" class="btn btn-primary">Submit</button>
-					 <button type="reset" class="btn btn-primary">Clear</button>
-        </div>
-   
-</form>
-</div>
-
 </body>
 
 

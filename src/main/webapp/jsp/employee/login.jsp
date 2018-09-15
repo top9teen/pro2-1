@@ -38,12 +38,12 @@
 					<%} %>
 			</div>			
     <div class="form-group">
-     <label for="exampleInputEmail1">Id card</label> <input type="text"
+     <label style="margin-left: 5mm;" for="exampleInputEmail1">Id card</label> <input type="text"
 							class="form-control" placeholder="ID card" name="idcard">
       </div>
       
       <div class="form-group">
-       <label for="exampleInputPassword1">Password</label> <input
+       <label style="margin-left: 5mm;" for="exampleInputPassword1">Password</label> <input
 				type="password" class="form-control" placeholder="Password"
 							name="password">
            </div>
@@ -54,7 +54,7 @@
 					<button type="submit" class="btn btn-default">Submit
 					</button>
 				
-					<p  class="message">Not registered? <a href="gotoregister">Create an account</a></p>
+					
 	 </div>
 	
     </div>

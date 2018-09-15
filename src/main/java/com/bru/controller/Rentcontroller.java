@@ -1,11 +1,18 @@
 package com.bru.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bru.dao.RentDao;
-import com.bru.model.RentBean;
+import com.bru.model.DetailrentBean;
+
 @Controller
 public class Rentcontroller {
 	@Autowired
@@ -15,13 +22,27 @@ public class Rentcontroller {
 		return "rent";
 }
 	@RequestMapping(value="/rent22")
-public String tes(int CB001, int CC001, int CC002 , int CD001 , String idcard ) {
-		RentBean bean = new RentBean();
+public String tes(int CB001, int CC001, int CC002 , int CD001 , String idcard,int sara,int mmmm ) throws ParseException {
+		DetailrentBean bean = new DetailrentBean();
+		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Date today = sdf.parse("14/11/2018");
+		Calendar cal = Calendar.getInstance();
+		today = new Date();
+		cal.setTime(today);
+		int M = 0, D = 0, Y = 0;
+		M = cal.get(Calendar.MONTH);
+		D = cal.get(Calendar.DATE);
+		Y = cal.get(Calendar.YEAR);
 		bean.setCB001(CB001);
 		bean.setCC001(CC001);
 		bean.setCC002(CC002);
 		bean.setCD001(CD001);
 		bean.setIdcard(idcard);
+		bean.setNumber(sara);
+		bean.setDatedateday(D);
+		bean.setDatedatemont(M+1);
+		bean.setDatedateyear(Y);
+		bean.setAll(mmmm);
 		try {
 			rentDao.insert(bean);
 		} catch (Exception e) {

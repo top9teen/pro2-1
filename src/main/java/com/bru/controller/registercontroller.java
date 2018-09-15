@@ -2,11 +2,12 @@
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import com.bru.dao.UserDao;
+import com.bru.model.CustomerBean;
 import com.bru.model.UserBean;
 
 
@@ -23,6 +24,12 @@ public class registercontroller {
 		
 		return "register";
 	}
+     @RequestMapping( value="/gotoresigter")
+ 	public String gotoresigter(Model model) {
+    	 model.addAttribute("messessError", "");
+ 		return "gotoresigter";
+ 	}
+	
 	@RequestMapping(value ="/gotorrrregister")
 	public String rent(String idcard ,String fristname , String lastname ,String address ,String telephone ,String gender ,
 			String password ,String status) {
@@ -51,8 +58,7 @@ public class registercontroller {
 		}
 
 		
-		return "index1";
+		return "gotoresigter";
 	}
-
 
 }

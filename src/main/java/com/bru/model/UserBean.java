@@ -3,7 +3,7 @@ package com.bru.model;
 
 
 public class UserBean {
-	private int no;
+	private int id;
 	private String idcard;
 	private String fristname;
 	private String lastname;
@@ -12,11 +12,12 @@ public class UserBean {
 	private String gender;
 	private String password;
 	private String status;
-	public int getNo() {
-		return no;
+
+	public int getId() {
+		return id;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getIdcard() {
 		return idcard;

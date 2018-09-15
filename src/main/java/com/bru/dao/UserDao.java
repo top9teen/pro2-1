@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 import org.springframework.stereotype.Repository;
 
-
+import com.bru.model.CustomerBean;
 import com.bru.model.UserBean;
 import com.bru.util.ConnectDB;
 
@@ -39,7 +39,7 @@ public class UserDao {
 		while (rs.next()) {
 			
 			bean.setIdcard(rs.getString("idcard"));
-
+			bean.setId(rs.getInt("id"));
 			bean.setPassword(rs.getString("password"));
 			bean.setStatus(rs.getString("status"));
 	
@@ -84,16 +84,44 @@ public class UserDao {
 			conn.close();
 		}
 	}
-	public  UserBean ch(String i )throws SQLException {
+	
+	public void insert2(CustomerBean bean) throws SQLException {
+		ConnectDB con = new ConnectDB();
+		PreparedStatement prepared = null;
+		StringBuilder sql = new StringBuilder();
+		Connection conn = con.openConnect();
+		try {
+			sql.append("INSERT INTO customer(cu_idcard,cu_fname,cu_lastname,cu_address,cu_telephone,cu_member) VALUES(?,?,?,?,?,?)" );
+			prepared = conn.prepareStatement(sql.toString());
+			prepared.setString(1, bean.getCuIdcard());
+			prepared.setString(2, bean.getCuFname());
+			prepared.setString(3, bean.getCuLastname());
+			prepared.setString(4, bean.getCuAddress());
+			prepared.setString(5, bean.getCuTelephone());
+			prepared.setInt(6, bean.getCuMember());
+
+		prepared.executeUpdate();
+
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+	}
+
+		finally {
+			conn.close();
+		}
+	}
+	
+	public  CustomerBean ch(String i )throws SQLException {
 		ConnectDB con = new ConnectDB();
 		PreparedStatement prepared = null ;
 		StringBuilder sql = new StringBuilder();
 		Connection cc = con.openConnect();
-		UserBean bean = new UserBean();
+		CustomerBean bean = new CustomerBean();
 
 		try {
  
-			sql.append( " SELECT * FROM user WHERE  idcard = ?" );
+			sql.append( " SELECT * FROM customer WHERE  cu_idcard = ?" );
 		
 		prepared = cc.prepareStatement(sql.toString());
 	
@@ -101,9 +129,8 @@ public class UserDao {
 
 			ResultSet rs = prepared.executeQuery();
 			while (rs.next()) {
-			
-				bean.setIdcard(rs.getString("idcard"));
-				bean.setStatus(rs.getString("status"));
+				bean.setCuFname(rs.getString("cu_fname"));
+				bean.setCuIdcard(rs.getString("cu_idcard"));
 	
 				
 			}
@@ -138,5 +165,5 @@ public class UserDao {
 		}
 	}
 	
-	
+	// end class
 }
