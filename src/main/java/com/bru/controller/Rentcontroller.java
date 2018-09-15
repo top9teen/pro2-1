@@ -3,8 +3,12 @@ package com.bru.controller;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,11 +26,13 @@ public class Rentcontroller {
 		return "rent";
 }
 	@RequestMapping(value="/rent22")
-public String tes(int CB001, int CC001, int CC002 , int CD001 , String idcard,int sara,int mmmm ) throws ParseException {
+public String tes(int CB001, int CC001, int CC002 , int CD001 , String idcard,int sara,int mmmm,HttpServletRequest re ) throws ParseException {
 		DetailrentBean bean = new DetailrentBean();
 		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date today = sdf.parse("14/11/2018");
 		Calendar cal = Calendar.getInstance();
+		String Mo[] = { "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม",
+				"กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" };
 		today = new Date();
 		cal.setTime(today);
 		int M = 0, D = 0, Y = 0;
@@ -40,15 +46,18 @@ public String tes(int CB001, int CC001, int CC002 , int CD001 , String idcard,in
 		bean.setIdcard(idcard);
 		bean.setNumber(sara);
 		bean.setDatedateday(D);
-		bean.setDatedatemont(M+1);
+		bean.setDatedatemont(M);
 		bean.setDatedateyear(Y);
 		bean.setAll(mmmm);
+		bean.setSimpleyear(Mo[M]);
 		try {
 			rentDao.insert(bean);
+			re.getSession().setAttribute("bean", bean);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "index1";
+		return "reportce";
 		
 		
 	}

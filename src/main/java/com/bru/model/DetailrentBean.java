@@ -11,11 +11,18 @@ public class DetailrentBean {
 	private int datedatemont ;
 	private int datedateyear ;
 	private int all;
+	private String simpleyear;
 	
 
 
 
 
+	public String getSimpleyear() {
+		return simpleyear;
+	}
+	public void setSimpleyear(String simpleyear) {
+		this.simpleyear = simpleyear;
+	}
 	public int getAll() {
 		return all;
 	}

@@ -1,12 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@page import="java.util.List"%>
+       <%@page import="com.bru.model.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <jsp:include page="../Template/header.jsp"></jsp:include>
-
+<%
+		List<DetailrentBean> list = null;
+		Integer a = 0;
+	%>
+	<%
+		list = (List<DetailrentBean>) request.getSession().getAttribute("list");
+	%>
 </head>
 <body>
 <jsp:include page="../Template/manu.jsp"></jsp:include>
@@ -41,50 +49,31 @@
               <th class="col-md-1 iefix">ถ้วย</th>
               <th class="col-md-1 iefix">จาน</th>
               <th class="col-md-1 iefix">ชาม</th>
-              <th class="col-md-1 iefix">ช้อนซ่อม</th>
+              <th class="col-md-1 iefix">ถ้วยน้ำจิ้ม</th>
               <th class="col-md-1 iefix">รวมรายการ</th>
               <th class="col-md-2 iefix">ยอดเงิน</th>
 
             </tr>
 
-
+<%
+						for (int i = 0; i < list.size(); i++) {
+					%>
             <tr >
-              <td>1</td>
-              <td>01/01/2558</td>
-              <td>1234567891234</td>
-              <td>5</td>
-              <td>5</td>
-              <td>5</td>
-              <td>5</td>
-              <td>20</td>
-              <td>2000</td>
+            
+              <td><%=a = a + 1%></td>
+              <td><%=list.get(i).getDatedateday() + " / " +list.get(i).getSimpleyear()+ " / " +list.get(i).getDatedateyear() %></td>
+              <td><%=list.get(i).getIdcard() %></td>
+              <td><%=list.get(i).getCC001() %></td>
+              <td><%=list.get(i).getCD001() %></td>
+              <td><%=list.get(i).getCB001()%></td>
+              <td><%=list.get(i).getCC002() %></td>
+              <td><%=list.get(i).getAll() %></td>
+              <td><%=list.get(i).getNumber() %></td>
+             
             </tr>
-
-            <tr >
-              <td>2</td>
-              <td>01/01/2558</td>
-              <td>1234567891235</td>
-              <td>5</td>
-              <td>5</td>
-              <td>5</td>
-              <td>5</td>
-              <td>20</td>
-              <td>2000</td>
-            </tr>
-
-             <tr >
-               <td>3</td>
-               <td>01/01/2558</td>
-               <td>1234567891236</td>
-               <td>5</td>
-               <td>5</td>
-               <td>5</td>
-               <td>5</td>
-               <td>20</td>
-               <td>2000</td>
-              </tr>
-
-
+ <%
+						}
+					%>
       </table>
 
     </form>

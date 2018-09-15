@@ -2,12 +2,24 @@ package com.bru.controller;
 
 
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.bru.dao.RentDao;
+import com.bru.model.DetailrentBean;
+
 @Controller
 public class Welcomecontroller {
-
+ 
+	@Autowired
+	RentDao rentDao;
 	
 	@RequestMapping("/index1")
 	public String heli() {
@@ -37,8 +49,10 @@ public class Welcomecontroller {
 	}
 	
 	@RequestMapping("/report")
-	public String helre() {
-
+	public String helre(HttpServletRequest res) throws SQLException {
+		List<DetailrentBean> list = new ArrayList<>();
+		list = rentDao.Trens();
+		res.getSession().setAttribute("list", list);
 		return "report";
 	}
 	
