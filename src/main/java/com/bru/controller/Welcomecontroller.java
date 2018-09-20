@@ -25,6 +25,10 @@ public class Welcomecontroller {
 	public String heli() {
 		return "index1";
 	}
+	@RequestMapping("/index2")
+	public String index2() {
+		return "index2";
+	}
   
 	
 		
@@ -55,6 +59,16 @@ public class Welcomecontroller {
 		res.getSession().setAttribute("list", list);
 		return "report";
 	}
+	
+	
+	@RequestMapping("/gotorerentger")
+	public String gotorerentger(int stIdcard,HttpServletRequest res) throws SQLException {
+		DetailrentBean bean = new DetailrentBean();
+		bean = rentDao.xx(stIdcard);
+		res.getSession().setAttribute("bean", bean);
+		return "reportce";
+	}
+	
 	
 	@RequestMapping("/container")
 	public String helc() {

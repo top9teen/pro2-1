@@ -17,7 +17,7 @@
 	%>
 </head>
 <body>
-<jsp:include page="../Template/manu.jsp"></jsp:include>
+<jsp:include page="../Template/manu2.jsp"></jsp:include>
 <div id="main">
 <div class="w3-teal">
   <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
@@ -51,8 +51,7 @@
               <th align="center">ชาม</th>
               <th align="center">ถ้วยน้ำจิ้ม</th>
               <th align="center">รวมรายการ</th>
-              <th align="center">ยอดเงิน</th>
-              <th align="center">ปริ้นใบเสร็จอีกครั้ง</th>
+             
 
             </tr>
 
@@ -69,8 +68,7 @@
               <td><%=list.get(i).getCB001()%></td>
               <td><%=list.get(i).getCC002() %></td>
               <td><%=list.get(i).getAll() %></td>
-              <td><%=list.get(i).getNumber() %></td>
-              <td align="center"><a  onclick="gotoUpdate('<%=list.get(i).getId()%>')"><span class="glyphicon glyphicon-search"> </span></a> </td>
+            
             </tr>
  <%
 						}
@@ -79,12 +77,7 @@
 
     </form>
 </div>
-<!-- <div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <button type="submit" class="btn btn-default">print</button>
-     <button type="submit" class="btn btn-primary">cancle</button>
-  </div>
-</div> -->
+
 
       <div class="form-group col-md-1">
 
@@ -96,11 +89,6 @@
 </body>
 <script type="text/javascript">
 
-function gotoUpdate(filter) {
-	document.getElementById("stIdcard").value = filter;
-	document.welcome.action="gotorerentger";
-	document.welcome.submit();
-}
 
 function w3_open() {
 	  document.getElementById("main").style.marginLeft = "20%";

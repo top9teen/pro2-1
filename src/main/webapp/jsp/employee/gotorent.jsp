@@ -122,7 +122,9 @@ input[type="number"] {
 $(function() {
 
     $('#no1').keyup(function() {  
-    	
+    	  $('#no2').val(0);
+	        $('#no3').val(0);
+	        $('#no4').val(0);
         updateTotal();
     });
      $('#no2').keyup(function() { 
@@ -176,7 +178,8 @@ function w3_open() {
 	}
 	
 	$('#no1').change(function() {
-		
+      
+        
 	    var y1 = parseInt($('#no1').val());
 
 	      var p1 = parseInt($('#ho1').val());
@@ -184,9 +187,11 @@ function w3_open() {
 		if (y1 > p1 ) {
 			 document.getElementById("tes12").disabled = true;
 			 
+			 
 		}
 		else{
 			document.getElementById("tes12").disabled = false;
+			
 		}
 		
 	});

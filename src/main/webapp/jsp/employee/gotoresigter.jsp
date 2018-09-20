@@ -28,7 +28,7 @@
 <%
 	result = (String) request.getAttribute("messessError");
 %>
-<form style="margin-left: 30%;" class="form-horizontal"action="gotoreg2" method="POST" name="gotoregister" > 
+<form style="margin-left: 30%;" class="form-horizontal" action="gotoreg2" method="POST" name="gotoregister" > 
 <%
 						 if(result.equals("L")){
 					%>

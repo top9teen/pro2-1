@@ -3,10 +3,10 @@ package com.bru.controller;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,7 +26,7 @@ public class Rentcontroller {
 		return "rent";
 }
 	@RequestMapping(value="/rent22")
-public String tes(int CB001, int CC001, int CC002 , int CD001 , String idcard,int sara,int mmmm,HttpServletRequest re ) throws ParseException {
+public String tes(int CB001, int CC001, int CC002 , int CD001 , String idcard,int sara,int mmmm,HttpServletRequest re ,int ho1 ,int ho2 ,int ho3,int ho4) throws ParseException {
 		DetailrentBean bean = new DetailrentBean();
 		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date today = sdf.parse("14/11/2018");
@@ -50,8 +50,17 @@ public String tes(int CB001, int CC001, int CC002 , int CD001 , String idcard,in
 		bean.setDatedateyear(Y);
 		bean.setAll(mmmm);
 		bean.setSimpleyear(Mo[M]);
+		int a = 0,b = 0,c = 0,d = 0 ;
+	    a  = ho1 - CB001;
+	    b = ho2 - CC001;
+	    c  = ho3 - CC002;
+	    d = ho4 - CD001 ;
 		try {
 			rentDao.insert(bean);
+			rentDao.update(a, "CB001");
+			rentDao.update(b, "CC001");
+			rentDao.update(c, "CC002");
+			rentDao.update(d, "CD001");
 			re.getSession().setAttribute("bean", bean);
 			
 		} catch (Exception e) {

@@ -38,17 +38,18 @@
 		<p  id="idtran"  style="margin-left: 5mm;"></p>
 		<h2 align="center">ใบเสร็จรับเงิน </h2>
 		<h2 align="center">OFFICIAL RECEIPT</h2>
-		<p align="right" style="margin-right: 5mm;" id="day"></p>
+		<p align="right" style="margin-right: 5mm;" id="day"> วันที่ <%=bean.getDatedateday() %> เดือน    <%=bean.getDatedatemont()%> พ.ศ.  <%=bean.getDatedateyear() %> </p>
 		<hr>
 		
 			<div style="margin-left: 8mm" >
 			<p id="nametran">รหัส   <%=bean.getIdcard() %></p>
-			<p id="emailtran">รหัส   <%=bean.getIdcard() %></p>
-			<p id="yearcartran">รหัส   <%=bean.getIdcard() %></p>
-			<p id="cartran">รหัส   <%=bean.getIdcard() %></p>
-			<p id="modeltran">รหัส   <%=bean.getIdcard() %></p>
-			<p id="monnytran">รหัส   <%=bean.getIdcard() %></p>
-		  <p align="right" style="margin-right: 8mm;" id="admintran">รหัส   <%=bean.getIdcard() %></p>
+			<p id="emailtran">จาน  <%=bean.getCD001() %></p>
+			<p id="yearcartran">ชาม   <%=bean.getCB001() %></p>
+			<p id="cartran">ถ้วยน้ำจิ้ม   <%=bean.getCC002() %></p>
+			<p id="modeltran">ถ้วยน้ำซุป   <%=bean.getCC001() %></p>
+			<p id="monnytran">รวมจำนวน   <%=bean.getAll() %></p>
+			<p id="monnytran">ราคาทั้งหมด   <%=bean.getNumber()%> บาท</p>
+		  <p align="right" style="margin-right: 8mm;" id="admintran">มหาลัย</p>
 		</div>
 	
 
@@ -61,7 +62,7 @@
 		onclick="printDiv('printableArea')"><span class="glyphicon glyphicon-print"></span> ปริ้นใบเสร็จ</a>
 
 	</div>
-		<form action="Check" style="margin-left: 15mm;">
+		<form action="index1" style="margin-left: 15mm;">
 <input type="submit" class="btn btn-info btn-lg" value="กลับไปหน้าหลัก">
 </form>
 </div>

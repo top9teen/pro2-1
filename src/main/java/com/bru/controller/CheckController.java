@@ -15,7 +15,7 @@ import com.bru.dao.RentDao;
 import com.bru.dao.UserDao;
 import com.bru.model.ContainerBean;
 import com.bru.model.CustomerBean;
-import com.bru.model.UserBean;
+
 
 @Controller
 public class CheckController {

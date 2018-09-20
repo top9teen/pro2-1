@@ -7,6 +7,9 @@ public class RentBean {
 	private int CC001;
 	private int CC002;
 	private int CD001;
+	
+	
+
 	public int getNo() {
 		return no;
 	}
