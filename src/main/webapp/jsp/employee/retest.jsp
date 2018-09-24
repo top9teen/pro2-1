@@ -40,6 +40,8 @@
     <div class="form-group col-md-10">
         <form class="" name = "welcome" action="#" method="post">
 <input type="hidden" name="stIdcard" id="stIdcard">
+<input id="myInput" style="width: 30%" align="right" type="text"
+				placeholder="ค้นหา...." class="w3-input w3-border w3-light-grey">
     <table class="table table-bordered">
 
             <tr>
@@ -54,7 +56,7 @@
               <th align="center">จัดส่งแล้ว</th>
 
             </tr>
-
+	<tbody id="myTable">
 <%
 						for (int i = 0; i < list.size(); i++) {
 					%>
@@ -73,6 +75,7 @@
  <%
 						}
 					%>
+					</tbody>
       </table>
 
     </form>
@@ -103,6 +106,19 @@ function gotoUpdate(filter) {
 	
 	
 }
+$(document).ready(
+		function() {
+			$("#myInput")
+					.on(
+							"keyup",
+							function() {
+								var value = $(this).val()
+										.toLowerCase();
+								$("#myTable tr")
+										.filter(
+												function() {
+													$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+												});});});
 
 function w3_open() {
 	  document.getElementById("main").style.marginLeft = "20%";
