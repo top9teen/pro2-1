@@ -46,6 +46,25 @@ public class manu2Controller {
 		return "retest";
 	}
 	
+	
+	@RequestMapping(value="/retested")
+	public String retested(HttpServletRequest re) throws ParseException, SQLException {
+		List<DetailrentBean> list = new ArrayList<>();
+		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Date today = sdf.parse("14/11/2018");
+		Calendar cal = Calendar.getInstance();
+		today = new Date();
+		cal.setTime(today);
+		int M = 0, D = 0, Y = 0;
+		M = cal.get(Calendar.MONTH);
+		D = cal.get(Calendar.DATE);
+		Y = cal.get(Calendar.YEAR);
+		list = rentDao.retested(D, M, Y);
+		re.getSession().setAttribute("list", list);
+		return "retest";
+	}
+	
+	
 	@RequestMapping(value="/delser")
 	public String retest2(HttpServletRequest re, int stIdcard) throws ParseException, SQLException {
 		List<DetailrentBean> list = new ArrayList<>();

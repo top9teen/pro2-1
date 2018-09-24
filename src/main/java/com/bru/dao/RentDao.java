@@ -210,6 +210,56 @@ public class RentDao {
 			return list  ; 
 		}
 		
+		// sec all manu2 where day agen 
+		public List<DetailrentBean> retested (int a, int b, int c) throws SQLException{
+			List<DetailrentBean>  list = new ArrayList<>();
+			DetailrentBean bean  = new DetailrentBean();
+			ConnectDB con = new ConnectDB();
+			PreparedStatement prepared = null;
+			StringBuilder sql = new StringBuilder();
+			Connection conn = con.openConnect();
+			String Mo[] = { "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม",
+					"กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" };
+
+			try {
+				sql.append(" SELECT * FROM  detailrent  ");
+				prepared = conn.prepareStatement(sql.toString());
+		
+
+				ResultSet rs = prepared.executeQuery();
+				while (rs.next()) {
+					
+					bean = new DetailrentBean();
+					bean.setStatus(rs.getString("status"));
+					if( bean.getStatus().equals("1") ) {
+						bean.setId(rs.getInt("ID"));
+						bean.setIdcard(rs.getString("ID_Card"));
+						bean.setCB001(rs.getInt("CB001"));
+						bean.setCC001(rs.getInt("CC001"));
+						bean.setCC002(rs.getInt("CC002"));
+						bean.setCD001(rs.getInt("CD001"));
+						bean.setNumber(rs.getInt("Number"));
+						bean.setDatedateday(rs.getInt("dateday"));
+						bean.setDatedatemont(rs.getInt("datemont"));
+						bean.setSimpleyear(Mo[bean.getDatedatemont()]);
+						bean.setDatedateyear(rs.getInt("dateyear"));
+						bean.setAll(rs.getInt("alloder"));
+						list.add(bean);
+					}
+			
+				}
+
+		}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			finally {
+				conn.close();
+			}
+			
+			return list  ; 
+		}
+		
 		// update manu2 เบิก
 		// update
 		   public void  update2(int a ) throws SQLException{
