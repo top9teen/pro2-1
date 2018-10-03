@@ -14,7 +14,12 @@
 <%
 	result = (String) request.getAttribute("messessError");
 %>
+<style type="text/css">
+body {
+	background-image: url("access/img/bg/pg1.png");
+}
 
+</style>
 </head>
 <body>
 
